@@ -16,8 +16,6 @@ echo -n "Would you like to install Google Chrome? "
 read gChrome
 echo -n "Would you like to install Sublime Text 3? "
 read sublime
-echo -n "Would you like to install MongoDB? "
-read mongodb
 echo -n "Would you like to setup git? "
 read setupGit
 echo -n "What password should we set in MySQL and PostgreSQL? "
