@@ -1,5 +1,7 @@
 #!/bin/bash
 
+USERNAME=`whoami`
+
 echo "******************************************************"
 echo "                 Ubuntu Dev Machine                   "
 echo "******************************************************"
@@ -16,6 +18,8 @@ echo -n "Would you like to install Google Chrome? "
 read gChrome
 echo -n "Would you like to install Sublime Text 3? "
 read sublime
+echo -n "Would you like to setup docker? "
+read setupDocker
 echo -n "Would you like to setup git? "
 read setupGit
 echo -n "What password should we set in MySQL and PostgreSQL? "
@@ -64,6 +68,11 @@ sudo -s <<HERE
     add-apt-repository ppa:webupd8team/sublime-text-3
     apt-get update
     apt-get install sublime-text-installer
+  fi
+
+  if [ ${setupDocker} == "y" ]; then
+    curl -sSL https://get.docker.com/ | sh
+    usermod -aG docker ${USERNAME}
   fi
 
   if [ ${phpEnv} == "y" ]; then
